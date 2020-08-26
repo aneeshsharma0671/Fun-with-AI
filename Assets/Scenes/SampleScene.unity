@@ -533,6 +533,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4419267059074376422, guid: 52171f53018e7d243aaa9e37b2f1bf8e, type: 3}
+      propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419267059074376425, guid: 52171f53018e7d243aaa9e37b2f1bf8e, type: 3}
+      propertyPath: jumpforce
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4419267059640950801, guid: 52171f53018e7d243aaa9e37b2f1bf8e, type: 3}
       propertyPath: m_Name
       value: TrainingArea

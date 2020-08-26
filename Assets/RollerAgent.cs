@@ -24,7 +24,17 @@ public class RollerAgent : Agent
             this.rB.velocity = Vector3.zero;
             this.transform.localPosition = new Vector3(0, 0.5f, -4.0f);
         }
-        Target.localPosition = new Vector3(Random.value * 8-4, 0.5f, Random.value * 4);
+        if (this.transform.localPosition.z < 0)
+        {
+            Target.localPosition = new Vector3(Random.value * 8 - 4, 0.5f, Random.value * 3 + 1);
+        }
+        else
+        {
+            Target.localPosition = new Vector3(Random.value * 8 - 4, 0.5f, -(Random.value * 3 + 1));
+
+        }
+
+
     }
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -53,8 +63,22 @@ public class RollerAgent : Agent
         }
         if(this.transform.localPosition.y <0)
         {
+            if(this.transform.localPosition.z < 0)
+            {
+                Debug.Log("negative reward");
+                SetReward(-1.0f);
+            }
             EndEpisode();
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+      //  if(other.gameObject.CompareTag("point"))
+      //  {
+       //     Debug.Log("point");
+        //    SetReward(1f);
+          //  EndEpisode();
+       // }
     }
     public override void Heuristic(float[] actionsOut)
     {
