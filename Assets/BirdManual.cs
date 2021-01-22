@@ -41,7 +41,7 @@ public class BirdManual : Agent
     public override void Heuristic(float[] actionsOut)
     {
         actionsOut[0] = 0;
-        if (Input.touchCount != 1)
+        if (!Input.GetKey(KeyCode.Space))
         {
             return;
         }
